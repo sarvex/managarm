@@ -22,7 +22,7 @@ class Entry:
 		self.source = source
 		self.strip = strip
 
-file_dict = dict()
+file_dict = {}
 
 def add_dir(rel_path):
 	file_dict[rel_path] = Entry(is_dir=True)

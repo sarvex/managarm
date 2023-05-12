@@ -15,7 +15,7 @@ parser.add_argument('--isn', action='store_true')
 
 args = parser.parse_args()
 
-profile = dict()
+profile = {}
 
 if args.aggregate_by == 'symbol':
 	nm = subprocess.check_output(
@@ -86,6 +86,6 @@ n_all = n_user + n_kernel
 out = sorted(profile.keys(), key=lambda loc: profile[loc])
 for loc in out:
 	print("{:.2f}% ({} samples) in:".format(profile[loc]/n_kernel*100, profile[loc]))
-	print("    {} in {}".format(loc[0], loc[1]))
+	print(f"    {loc[0]} in {loc[1]}")
 print("{} (= {:.2f}% of all samples) in the kernel".format(n_kernel, n_kernel/(n_user + n_kernel)*100))
 print("{:.2f}% of all kernel samples could be resolved".format(n_resolved/n_kernel*100))
